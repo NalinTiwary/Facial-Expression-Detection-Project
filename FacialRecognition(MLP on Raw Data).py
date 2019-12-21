@@ -4,12 +4,10 @@ import pickle
 import warnings
 import numpy as np
 import pandas as pd
-import seaborn as sns
 
 import urllib.request
 
 from sklearn import metrics
-from scipy.spatial import distance
 from sklearn.metrics import accuracy_score
 from matplotlib import pyplot as plt
 from tqdm import tqdm,tqdm_pandas
@@ -89,40 +87,6 @@ def plot_graphs(history, best):
 
 label_map = {"0":"ANGRY","1":"HAPPY","2":"SAD","3":"SURPRISE","4":"NEUTRAL"}
 predictor = dlib.shape_predictor('./shape_predictor_68_face_landmarks.dat')
-
-def get_landmarks(image):
-  rects = [dlib.rectangle(left=1, top=1, right=47, bottom=47)]
-  landmarks = [(p.x, p.y) for p in predictor(image, rects[0]).parts()]
-  return image,landmarks
-
-def image_landmarks(image,face_landmarks):
-  radius = -4
-  circle_thickness = 1
-  image_copy = image.copy()
-  for (x, y) in face_landmarks:
-    cv2.circle(image_copy, (x, y), circle_thickness, (255,0,0), radius)
-
-  plt.imshow(image_copy, interpolation='nearest')
-  plt.show()
-
-def landmarks_edist(face_landmarks):
-    e_dist = []
-    for i in range(len(face_landmarks)):
-        for j in range(len(face_landmarks)):
-            if i!= j:
-                e_dist.append(distance.euclidean(face_landmarks[i],face_landmarks[j]))
-    return e_dist
-
-def compare_learning(mlp, lm, cnn, vgg):
-  plt.plot(vgg.history['val_acc'],)
-  plt.plot(cnn.history['val_acc'])
-  plt.plot(mlp.history['val_acc'],)
-  plt.plot(lm.history['val_acc'])
-  plt.ylabel('validitation accuracy')
-  plt.xlabel('epoch')
-  plt.legend(['cnn_transfer', 'cnn_scratch', 'mlp_pixels', 'mlp_landmarks'], bbox_to_anchor=[1,1])
-  plt.xticks(range(0, epochs+1, 5), range(0, epochs+1, 5))
-  plt.show()
 
 epochs = 20
 batch_size = 64
