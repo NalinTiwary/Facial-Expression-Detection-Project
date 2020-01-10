@@ -37,7 +37,7 @@ while True:
     # grayscale
     frame = vs.read()
     frame = imutils.resize(frame, width=700)
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) 
 
     # detect faces in the grayscale frame
     rects = detector(gray, 0)
