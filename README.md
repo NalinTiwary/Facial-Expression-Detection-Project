@@ -1,5 +1,5 @@
 # Facial-Emotion-Detection-Project
-This was a Project I completed in my Summer Vacations to get a better understanding of Neural Networks.This repository contains code which uses Deep Learning to train a model to predict the emotion a person is showing from his/her Facial Expressions. The model can predict whether the person is Sad, Happy, Angry, Suprised or Neutral. I have trained both a Multi-Layer Perceptron and a Convolutional Neural Network to make the prediction. I have also used Transferred Learning to make a prediction using the VGG model. The camera.py file can be used to activate the computer's web-camera and use the models real time.
+This was a Project I completed during my Summer Vacation to get a better understanding of Neural Networks.This repository contains code that uses Deep Learning to train a model to predict the emotion a person is showing from his/her Facial Expressions. The model can predict whether the person is Sad, Happy, Angry, Suprised or Neutral. I have trained both a Multi-Layer Perceptron and a Convolutional Neural Network to make the prediction. I have also used Transferred Learning to make a prediction using the VGG model. The camera.py file can be used to activate the computer's web-camera and use the models real time.
 
 
 ## Keras
